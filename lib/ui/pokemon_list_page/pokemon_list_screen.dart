@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_pokemon/client/models/pokemon_list_result.dart';
+import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
 import 'package:project_pokemon/generated/l10n.dart';
+import 'package:project_pokemon/ui/pokemon_deteil_page/pokemon_detail_page.dart';
 
 class PokemonListScreen extends StatelessWidget {
   const PokemonListScreen({
@@ -13,35 +14,51 @@ class PokemonListScreen extends StatelessWidget {
 
   final bool noMorePage;
   final bool loading;
-  final List<SimplePokemonModel> pokemonList;
-  final void Function() nextPageFn;
+  final List<NamedApiResponse> pokemonList;
+  final VoidCallback nextPageFn;
 
   @override
   Widget build(BuildContext context) {
-    return pokemonList.isEmpty
-        ? loading
-            ? const Center(child: CircularProgressIndicator())
-            : Center(child: Text(S.of(context).no_pokemon_found))
-        : ListView.builder(
-            itemCount: pokemonList.length + 1,
-            itemBuilder: (context, index) {
-              if (index >= pokemonList.length) {
-                if (loading) {
-                  return const CircularProgressIndicator();
+    return Scaffold(
+      appBar: AppBar(title: Text(S.of(context).pokemons)),
+      body: pokemonList.isEmpty
+          ? loading
+              ? const Center(child: CircularProgressIndicator())
+              : Center(child: Text(S.of(context).no_pokemon_found))
+          : ListView.builder(
+              itemCount: pokemonList.length + 1,
+              itemBuilder: (context, index) {
+                if (index >= pokemonList.length) {
+                  return loading
+                      ? const CircularProgressIndicator()
+                      : noMorePage
+                          ? const SizedBox()
+                          : nextPageButton(context);
                 } else {
-                  return noMorePage
-                      ? const SizedBox()
-                      : ElevatedButton(
-                          child: Text(S.of(context).next_page),
-                          onPressed: nextPageFn,
-                        );
+                  return ListTile(
+                    title: Text(pokemonList[index].name ??
+                        S.of(context).unknown_pokemon),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PokemonDetailPage(
+                            pokemonName: pokemonList[index].name!,
+                          ),
+                        ),
+                      );
+                    },
+                  );
                 }
-              }
-              return ListTile(
-                title: Text(
-                    pokemonList[index].name ?? S.of(context).unknown_pokemon),
-              );
-            },
-          );
+              },
+            ),
+    );
+  }
+
+  Widget nextPageButton(BuildContext context) {
+    return ElevatedButton(
+      child: Text(S.of(context).next_page),
+      onPressed: nextPageFn,
+    );
   }
 }

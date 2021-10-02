@@ -8,7 +8,7 @@ class PokemonListInitial extends PokemonListState {}
 class GettingPokemonListState extends PokemonListState {}
 
 class PokemonListFoundState extends PokemonListState {
-  final List<SimplePokemonModel> pokemonList;
+  final List<NamedApiResponse> pokemonList;
   final bool noMorePage;
 
   PokemonListFoundState(this.pokemonList, this.noMorePage);

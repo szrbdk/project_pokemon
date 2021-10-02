@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:project_pokemon/ui/home/home_screen.dart';
 import 'package:project_pokemon/utilities/blocs/app_config_bloc/app_config_bloc.dart';
+import 'package:project_pokemon/utilities/simple_bloc_observer.dart';
 
 import 'generated/l10n.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }
 

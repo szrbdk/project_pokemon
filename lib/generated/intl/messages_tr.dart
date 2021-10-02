@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemon_detail_not_found":
+            MessageLookupByLibrary.simpleMessage("Pokémon detayı bulunamadı!"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémonlar"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":

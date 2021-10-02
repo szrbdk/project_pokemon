@@ -8,5 +8,6 @@
     "pokemons": "Pokémonlar",
     "no_pokemon_found": "Pokémon bulunamadı!",
     "next_page": "Sonraki Sayfa",
-    "unknown_pokemon": "Bilinmeyen Pokémon"
+    "unknown_pokemon": "Bilinmeyen Pokémon",
+    "pokemon_detail_not_found": "Pokémon detayı bulunamadı!"
 }

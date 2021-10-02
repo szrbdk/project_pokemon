@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("No pokémon found!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemon_detail_not_found":
+            MessageLookupByLibrary.simpleMessage("Pokémon detail not found!"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémons"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":

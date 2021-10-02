@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:project_pokemon/client/models/pokemon_list_result.dart';
+import 'package:project_pokemon/client/models/base_response_model/base_api_response.dart';
+import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
 import 'package:project_pokemon/client/services/pokemon_service.dart';
 
 part 'pokemon_list_event.dart';
@@ -15,7 +16,7 @@ class PokemonListBloc extends Bloc<PokemonListEvent, PokemonListState> {
     on<PokemonListEvent>((event, emit) async {
       if (event is GetPokemonsEvent) {
         emit(GettingPokemonListState());
-        PokemonListResult result = await getPokemons();
+        BaseApiResponse result = await getPokemons();
         if (result.next != null) {
           Uri uri = Uri.parse(result.next!);
           if (uri.queryParameters.containsKey('offset') &&
@@ -29,8 +30,8 @@ class PokemonListBloc extends Bloc<PokemonListEvent, PokemonListState> {
     });
   }
 
-  Future<PokemonListResult> getPokemons() async {
-    var completer = Completer<PokemonListResult>();
+  Future<BaseApiResponse> getPokemons() async {
+    var completer = Completer<BaseApiResponse>();
     PokemonService()
         .getPokemons(parameters: {'offset': _currentIndex}).then((value) {
       completer.complete(value);

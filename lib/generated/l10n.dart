@@ -154,6 +154,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Pokémon detail not found!`
+  String get pokemon_detail_not_found {
+    return Intl.message(
+      'Pokémon detail not found!',
+      name: 'pokemon_detail_not_found',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
