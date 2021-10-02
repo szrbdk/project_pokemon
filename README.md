@@ -5,7 +5,7 @@ A simple Pokédex application using Poke API and Flutter.
 
 #### Features
 
-- [ ] List pokémons using the API 
+- [x] List pokémons using the API 
 
 - [ ] Show pokémon details
 
