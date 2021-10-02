@@ -19,7 +19,7 @@ A simple Pokédex application using Poke API and Flutter.
 
 - [ ] Dark theme
 
-- [ ] Language support
+- [x] Language support
 
 - [ ] Test Case
 

@@ -1,0 +1,9 @@
+{
+    "@@locale": "en",
+    "language_name": "{language, select, en {English} tr {Türkçe} other {-}}", 
+    "pokemon": "Pokémon",
+    "project": "Project",
+    "project_pokemon": "Project Pokémon",
+    "settings": "Settings",
+    "language": "Language"
+}
