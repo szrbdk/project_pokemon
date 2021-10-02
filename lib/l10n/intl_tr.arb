@@ -4,5 +4,9 @@
     "project": "Project",
     "project_pokemon": "Proje Pokémon",
     "settings": "Ayarlar",
-    "language": "Dil"
+    "language": "Dil",
+    "pokemons": "Pokémonlar",
+    "no_pokemon_found": "Pokémon bulunamadı!",
+    "next_page": "Sonraki Sayfa",
+    "unknown_pokemon": "Bilinmeyen Pokémon"
 }

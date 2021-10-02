@@ -29,10 +29,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "language_name": m0,
+        "next_page": MessageLookupByLibrary.simpleMessage("Next Page"),
+        "no_pokemon_found":
+            MessageLookupByLibrary.simpleMessage("No pokémon found!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemons": MessageLookupByLibrary.simpleMessage("Pokémons"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Project Pokémon"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings")
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "unknown_pokemon":
+            MessageLookupByLibrary.simpleMessage("Unknown Pokémon")
       };
 }

@@ -9,7 +9,7 @@ class AppConfigBloc extends Bloc<AppConfigEvent, AppConfigState> {
   AppConfigBloc() : super(AppConfigInitial()) {
     on<AppConfigEvent>((event, emit) {
       if (event is LocaleChangedEvent) {
-        return emit(LocaleChangedState(event.locale));
+        emit(LocaleChangedState(event.locale));
       }
     });
   }

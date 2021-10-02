@@ -22,10 +22,16 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "language": MessageLookupByLibrary.simpleMessage("Dil"),
+        "next_page": MessageLookupByLibrary.simpleMessage("Sonraki Sayfa"),
+        "no_pokemon_found":
+            MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemons": MessageLookupByLibrary.simpleMessage("Pokémonlar"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Proje Pokémon"),
-        "settings": MessageLookupByLibrary.simpleMessage("Ayarlar")
+        "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
+        "unknown_pokemon":
+            MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon")
       };
 }

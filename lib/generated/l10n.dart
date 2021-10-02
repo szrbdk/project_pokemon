@@ -114,6 +114,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Pokémons`
+  String get pokemons {
+    return Intl.message(
+      'Pokémons',
+      name: 'pokemons',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No pokémon found!`
+  String get no_pokemon_found {
+    return Intl.message(
+      'No pokémon found!',
+      name: 'no_pokemon_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next Page`
+  String get next_page {
+    return Intl.message(
+      'Next Page',
+      name: 'next_page',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Pokémon`
+  String get unknown_pokemon {
+    return Intl.message(
+      'Unknown Pokémon',
+      name: 'unknown_pokemon',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

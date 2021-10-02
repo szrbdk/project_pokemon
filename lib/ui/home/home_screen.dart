@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_pokemon/generated/l10n.dart';
+import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_page.dart';
 import 'package:project_pokemon/ui/settings/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,29 +19,36 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: Center(
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: '${S.of(context).project}\n',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          ?.apply(fontWeightDelta: 2, fontSizeFactor: 0.7),
-                    ),
-                    TextSpan(
-                      text: S.of(context).pokemon,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline4
-                          ?.apply(fontWeightDelta: 2, fontSizeFactor: 1.4),
-                    ),
-                  ],
-                ),
+          Center(
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '${S.of(context).project}\n',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        ?.apply(fontWeightDelta: 2, fontSizeFactor: 0.7),
+                  ),
+                  TextSpan(
+                    text: S.of(context).pokemon,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        ?.apply(fontWeightDelta: 2, fontSizeFactor: 1.4),
+                  ),
+                ],
               ),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text(S.of(context).pokemons),
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const PokemonListPage()));
+              },
             ),
           ),
           Card(
@@ -55,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
-          )
+          ),
         ],
       ),
     );
