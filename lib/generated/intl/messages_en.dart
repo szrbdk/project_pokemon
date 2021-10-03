@@ -27,8 +27,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "capture_rate": MessageLookupByLibrary.simpleMessage("Capture Rate"),
+        "egg_groups": MessageLookupByLibrary.simpleMessage("Eggs"),
+        "height": MessageLookupByLibrary.simpleMessage("Height"),
+        "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "language_name": m0,
+        "lbs": MessageLookupByLibrary.simpleMessage("lbs"),
         "next_page": MessageLookupByLibrary.simpleMessage("Next Page"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("No pokémon found!"),
@@ -41,7 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Project Pokémon"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "species": MessageLookupByLibrary.simpleMessage("Species"),
+        "stats": MessageLookupByLibrary.simpleMessage("Stats"),
         "unknown_pokemon":
-            MessageLookupByLibrary.simpleMessage("Unknown Pokémon")
+            MessageLookupByLibrary.simpleMessage("Unknown Pokémon"),
+        "weight": MessageLookupByLibrary.simpleMessage("Weight")
       };
 }

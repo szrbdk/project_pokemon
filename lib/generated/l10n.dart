@@ -174,6 +174,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Eggs`
+  String get egg_groups {
+    return Intl.message(
+      'Eggs',
+      name: 'egg_groups',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stats`
+  String get stats {
+    return Intl.message(
+      'Stats',
+      name: 'stats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Capture Rate`
+  String get capture_rate {
+    return Intl.message(
+      'Capture Rate',
+      name: 'capture_rate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height`
+  String get height {
+    return Intl.message(
+      'Height',
+      name: 'height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lbs`
+  String get lbs {
+    return Intl.message(
+      'lbs',
+      name: 'lbs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `inc`
+  String get inc {
+    return Intl.message(
+      'inc',
+      name: 'inc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

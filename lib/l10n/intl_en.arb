@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "language_name": "{language, select, en {English} tr {Türkçe} other {-}}", 
+    "language_name": "{language, select, en {English} tr {Türkçe} other {-}}",
     "pokemon": "Pokémon",
     "project": "Project",
     "project_pokemon": "Project Pokémon",
@@ -11,5 +11,12 @@
     "next_page": "Next Page",
     "unknown_pokemon": "Unknown Pokémon",
     "pokemon_detail_not_found": "Pokémon detail not found!",
-    "species": "Species"
+    "species": "Species",
+    "egg_groups": "Eggs",
+    "stats": "Stats",
+    "capture_rate": "Capture Rate",
+    "weight": "Weight",
+    "height": "Height",
+    "lbs": "lbs",
+    "inc": "inc"
 }

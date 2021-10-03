@@ -10,5 +10,12 @@
     "next_page": "Sonraki Sayfa",
     "unknown_pokemon": "Bilinmeyen Pokémon",
     "pokemon_detail_not_found": "Pokémon detayı bulunamadı!",
-    "species": "Türler"
+    "species": "Türler",
+    "egg_groups": "Yumurtalar",
+    "stats": "İstatikler",
+    "capture_rate": "Yakalama Oranı",
+    "weight": "Ağırlık",
+    "height": "Boy",
+    "lbs": "lbs",
+    "inc": "inc"
 }

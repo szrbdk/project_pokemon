@@ -21,7 +21,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "capture_rate": MessageLookupByLibrary.simpleMessage("Yakalama Oranı"),
+        "egg_groups": MessageLookupByLibrary.simpleMessage("Yumurtalar"),
+        "height": MessageLookupByLibrary.simpleMessage("Boy"),
+        "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Dil"),
+        "lbs": MessageLookupByLibrary.simpleMessage("lbs"),
         "next_page": MessageLookupByLibrary.simpleMessage("Sonraki Sayfa"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
@@ -34,7 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Proje Pokémon"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "species": MessageLookupByLibrary.simpleMessage("Türler"),
+        "stats": MessageLookupByLibrary.simpleMessage("İstatikler"),
         "unknown_pokemon":
-            MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon")
+            MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon"),
+        "weight": MessageLookupByLibrary.simpleMessage("Ağırlık")
       };
 }
