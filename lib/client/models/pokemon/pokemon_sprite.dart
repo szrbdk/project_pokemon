@@ -66,7 +66,9 @@ class PokemonSprites {
       frontShiny,
       frontShinyFemale,
     ];
-    return _artWorks.firstWhereOrNull((element) => element != null) ?? '';
+    return _artWorks.firstWhereOrNull(
+            (element) => element != null && !element.endsWith('svg')) ??
+        '';
   }
 }
 

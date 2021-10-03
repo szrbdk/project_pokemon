@@ -7,8 +7,10 @@ extension StringExtension on ServiceEndpoint {
     switch (this) {
       case ServiceEndpoint.pokemon:
         return 'pokemon';
+      case ServiceEndpoint.pokemonSpecies:
+        return 'pokemon-species';
     }
   }
 }
 
-enum ServiceEndpoint { pokemon }
+enum ServiceEndpoint { pokemon, pokemonSpecies }

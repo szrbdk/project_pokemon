@@ -10,5 +10,6 @@
     "no_pokemon_found": "No pokémon found!",
     "next_page": "Next Page",
     "unknown_pokemon": "Unknown Pokémon",
-    "pokemon_detail_not_found": "Pokémon detail not found!"
+    "pokemon_detail_not_found": "Pokémon detail not found!",
+    "species": "Species"
 }

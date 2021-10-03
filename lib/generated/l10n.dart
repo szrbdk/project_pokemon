@@ -164,6 +164,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Species`
+  String get species {
+    return Intl.message(
+      'Species',
+      name: 'species',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

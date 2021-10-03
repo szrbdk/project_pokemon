@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
             locale = state.locale;
           }
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             locale: locale,
             localizationsDelegates: const [
               S.delegate,

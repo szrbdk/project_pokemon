@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Proje Pokémon"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
+        "species": MessageLookupByLibrary.simpleMessage("Türler"),
         "unknown_pokemon":
             MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon")
       };
