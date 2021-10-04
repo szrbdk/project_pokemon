@@ -9,8 +9,10 @@ extension StringExtension on ServiceEndpoint {
         return 'pokemon';
       case ServiceEndpoint.pokemonSpecies:
         return 'pokemon-species';
+      case ServiceEndpoint.evolutionChain:
+        return 'evolution-chain';
     }
   }
 }
 
-enum ServiceEndpoint { pokemon, pokemonSpecies }
+enum ServiceEndpoint { pokemon, pokemonSpecies, evolutionChain }

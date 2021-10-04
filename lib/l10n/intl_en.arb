@@ -18,5 +18,8 @@
     "weight": "Weight",
     "height": "Height",
     "lbs": "lbs",
-    "inc": "inc"
+    "inc": "inc",
+    "abilities" : "Abilities",
+    "pokemon_type": "Type",
+    "next_evolutions": "Next Evolutions"
 }

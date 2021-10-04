@@ -6,6 +6,7 @@ import 'dart:convert';
 
 import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_ability.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_evolution.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_species.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_sprite.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_stat.dart';
@@ -46,6 +47,7 @@ class PokemonDetail {
   int? weight;
 
   PokemonSpecies? pokemonSpecies;
+  PokemonEvolution? pokemonEvolution;
 
   factory PokemonDetail.fromJson(Map<String, dynamic> json) => PokemonDetail(
         abilities: json["abilities"] == null

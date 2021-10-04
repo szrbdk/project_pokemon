@@ -244,6 +244,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Abilities`
+  String get abilities {
+    return Intl.message(
+      'Abilities',
+      name: 'abilities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type`
+  String get pokemon_type {
+    return Intl.message(
+      'Type',
+      name: 'pokemon_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next Evolutions`
+  String get next_evolutions {
+    return Intl.message(
+      'Next Evolutions',
+      name: 'next_evolutions',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

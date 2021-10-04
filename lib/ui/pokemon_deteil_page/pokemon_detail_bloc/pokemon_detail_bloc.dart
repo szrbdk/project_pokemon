@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_evolution.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_species.dart';
+import 'package:project_pokemon/client/services/evolution_chain_service.dart';
 import 'package:project_pokemon/client/services/pokemon_service.dart';
 import 'package:project_pokemon/client/services/pokemon_species_service.dart';
 
@@ -27,6 +29,7 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
         ];
         await Future.wait(_futures);
         detail.pokemonSpecies = species;
+        detail.pokemonEvolution = await getPokemonEvolution(detail.id!);
         emit(PokemonDetailFoundState(detail));
       }
     });
@@ -45,6 +48,16 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
   Future<PokemonSpecies> getPokemonSpecies(String name) {
     var completer = Completer<PokemonSpecies>();
     PokemonSpeciesService().pokemonSpecies(pokemonName: name).then((value) {
+      completer.complete(value);
+    }).catchError((error) {
+      completer.completeError(error);
+    });
+    return completer.future;
+  }
+
+  Future<PokemonEvolution> getPokemonEvolution(int id) {
+    var completer = Completer<PokemonEvolution>();
+    EvolutionChainService().evolutionChain(id: id).then((value) {
       completer.complete(value);
     }).catchError((error) {
       completer.completeError(error);

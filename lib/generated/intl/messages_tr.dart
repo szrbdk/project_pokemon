@@ -21,20 +21,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "abilities": MessageLookupByLibrary.simpleMessage("Yetenekler"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Yakalama Oranı"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Yumurtalar"),
         "height": MessageLookupByLibrary.simpleMessage("Boy"),
         "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Dil"),
         "lbs": MessageLookupByLibrary.simpleMessage("lbs"),
+        "next_evolutions":
+            MessageLookupByLibrary.simpleMessage("Sonraki Evrimler"),
         "next_page": MessageLookupByLibrary.simpleMessage("Sonraki Sayfa"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detayı bulunamadı!"),
+        "pokemon_type": MessageLookupByLibrary.simpleMessage("Türü"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémonlar"),
-        "project": MessageLookupByLibrary.simpleMessage("Project"),
+        "project": MessageLookupByLibrary.simpleMessage("Proje"),
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Proje Pokémon"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),

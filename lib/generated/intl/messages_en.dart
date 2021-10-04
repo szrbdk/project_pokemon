@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "abilities": MessageLookupByLibrary.simpleMessage("Abilities"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Capture Rate"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Eggs"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
@@ -34,12 +35,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "language_name": m0,
         "lbs": MessageLookupByLibrary.simpleMessage("lbs"),
+        "next_evolutions":
+            MessageLookupByLibrary.simpleMessage("Next Evolutions"),
         "next_page": MessageLookupByLibrary.simpleMessage("Next Page"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("No pokémon found!"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detail not found!"),
+        "pokemon_type": MessageLookupByLibrary.simpleMessage("Type"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémons"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":

@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_ability.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_evolution.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_type.dart';
 import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/utilities/extensions/extensions.dart'
-    show MediaQueryContext, StringCasingExtension;
+    show BuildContextExtension, StringCasingExtension;
 import 'package:project_pokemon/widgets/pokemon_artwork_widget.dart';
+import 'package:project_pokemon/widgets/pokemon_detail_chip_widget.dart';
+import 'package:project_pokemon/widgets/pokemon_pyschical_attributes_widget.dart';
+import 'package:project_pokemon/widgets/pokemon_stat_bar_widget.dart';
+import 'package:project_pokemon/widgets/section_title.dart';
 
 class PokemonDetailScreen extends StatelessWidget {
   const PokemonDetailScreen({
@@ -119,141 +127,64 @@ class DetailsSection extends StatelessWidget {
                 ),
                 const Divider(),
                 if (detail.stats != null) ...[
-                  sectionTitleWidget(context, S.of(context).stats),
+                  SectionTitle(title: S.of(context).stats),
                   for (var stat in detail.stats!) ...[
-                    statBarWidget(
-                        context,
-                        stat.stat!.name!.replaceAll('-', ' ').toTitleCase(),
-                        stat.baseStat!.toDouble())
+                    PokemonStatBarWidget(
+                        label:
+                            stat.stat!.name!.replaceAll('-', ' ').toTitleCase(),
+                        value: stat.baseStat!.toDouble())
                   ],
                   if (detail.pokemonSpecies?.captureRate != null) ...[
-                    statBarWidget(
-                      context,
-                      S
+                    PokemonStatBarWidget(
+                      label: S
                           .of(context)
                           .capture_rate
                           .replaceAll('-', ' ')
                           .toTitleCase(),
-                      detail.pokemonSpecies!.captureRate!.toDouble(),
-                      Colors.green,
+                      value: detail.pokemonSpecies!.captureRate!.toDouble(),
+                      barColor: Colors.green,
                     )
                   ]
                 ],
+                if (detail.types != null && detail.types!.isNotEmpty) ...[
+                  SectionTitle(title: S.of(context).pokemon_type),
+                  PokemonDetailChipWidget<PokemonType>(
+                    items: detail.types!,
+                    nameFn: (item) => item.type!.name!,
+                    chipColor: Colors.deepPurple,
+                  ),
+                ],
                 if (detail.pokemonSpecies != null) ...[
                   if (detail.pokemonSpecies!.eggGroups != null) ...[
-                    sectionTitleWidget(context, S.of(context).egg_groups),
-                    eggGroupsWidget(context),
+                    SectionTitle(title: S.of(context).egg_groups),
+                    PokemonDetailChipWidget<NamedApiResponse>(
+                      items: detail.pokemonSpecies!.eggGroups!,
+                      nameFn: (item) => item.name!,
+                    ),
                   ]
                 ],
-                // TODO Add ablities
-                // TODO add type
-                // TODO add varieties
+                if (detail.abilities != null &&
+                    detail.abilities!.isNotEmpty) ...[
+                  SectionTitle(title: S.of(context).abilities),
+                  PokemonDetailChipWidget<PokemonAbility>(
+                    items: detail.abilities!,
+                    nameFn: (item) => item.ability!.name!,
+                    chipColor: Colors.amber.shade900,
+                  ),
+                ],
+                if (detail.pokemonEvolution?.chain?.evolvesTo != null &&
+                    detail.pokemonEvolution!.chain!.evolvesTo!.isNotEmpty) ...[
+                  SectionTitle(title: S.of(context).next_evolutions),
+                  PokemonDetailChipWidget<Chain>(
+                    items: detail.pokemonEvolution!.chain!.evolvesTo!,
+                    nameFn: (item) => item.species!.name!,
+                    chipColor: Colors.pink,
+                  ),
+                ]
               ],
             ),
           ),
         )
-      ],
-    );
-  }
-
-  Widget statBarWidget(BuildContext context, String label, double value,
-      [Color? barColor]) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: Text(
-              label,
-              style: context.theme.textTheme.subtitle1?.apply(
-                  fontStyle: FontStyle.italic,
-                  fontWeightDelta: 2,
-                  fontSizeFactor: 0.8),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            flex: 5,
-            child: LinearProgressIndicator(
-              value: value / 100,
-              minHeight: 10,
-              backgroundColor: Colors.grey.shade400,
-              color: barColor ?? Colors.blue,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Align eggGroupsWidget(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Wrap(
-          runSpacing: 10,
-          spacing: 10,
-          children: [
-            for (var egg in detail.pokemonSpecies!.eggGroups!) ...[
-              Chip(
-                label: Text(egg.name!.toTitleCase()),
-                backgroundColor: Colors.indigoAccent,
-                labelStyle: context.theme.textTheme.bodyText1
-                    ?.apply(color: Colors.white),
-              ),
-            ]
-          ],
-        ),
-      ),
-    );
-  }
-
-  Align sectionTitleWidget(BuildContext context, String title) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Text(
-          title,
-          style: context.theme.textTheme.headline6,
-        ),
-      ),
-    );
-  }
-}
-
-class PokemonPhysicalAttributesWidget extends StatelessWidget {
-  const PokemonPhysicalAttributesWidget({
-    Key? key,
-    required this.title,
-    required this.value,
-    required this.unit,
-  }) : super(key: key);
-
-  final String title;
-  final int value;
-  final String unit;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: context.theme.textTheme.headline6
-              ?.apply(fontSizeFactor: 0.7, fontWeightDelta: 2),
-        ),
-        Text(
-          '$value',
-          style: context.theme.textTheme.headline6?.apply(fontSizeFactor: 0.9),
-        ),
-        Text(
-          unit,
-          style: context.theme.textTheme.caption
-              ?.apply(fontStyle: FontStyle.italic),
-        ),
       ],
     );
   }

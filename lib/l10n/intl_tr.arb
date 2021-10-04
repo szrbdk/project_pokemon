@@ -1,7 +1,7 @@
 {
     "@@locale": "tr",
     "pokemon": "Pokémon",
-    "project": "Project",
+    "project": "Proje",
     "project_pokemon": "Proje Pokémon",
     "settings": "Ayarlar",
     "language": "Dil",
@@ -17,5 +17,8 @@
     "weight": "Ağırlık",
     "height": "Boy",
     "lbs": "lbs",
-    "inc": "inc"
+    "inc": "inc",
+    "abilities": "Yetenekler",
+    "pokemon_type": "Türü",
+    "next_evolutions": "Sonraki Evrimler"
 }
