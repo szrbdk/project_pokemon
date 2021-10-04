@@ -31,6 +31,8 @@ class PokemonDetail {
     this.stats,
     this.types,
     this.weight,
+    this.pokemonEvolution,
+    this.pokemonSpecies,
   });
 
   List<PokemonAbility>? abilities;
@@ -78,6 +80,12 @@ class PokemonDetail {
             : List<PokemonType>.from(
                 json["types"].map((x) => PokemonType.fromJson(x))),
         weight: json["weight"],
+        pokemonSpecies: json["pokemonSpecies"] == null
+            ? null
+            : PokemonSpecies.fromJson(json["pokemonSpecies"]),
+        pokemonEvolution: json["pokemonEvolution"] == null
+            ? null
+            : PokemonEvolution.fromJson(json["pokemonEvolution"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -101,5 +109,9 @@ class PokemonDetail {
             ? null
             : List<dynamic>.from(types!.map((x) => x.toJson())),
         "weight": weight,
+        "pokemonSpecies":
+            pokemonSpecies == null ? null : pokemonSpecies!.toJson(),
+        "pokemonEvolution":
+            pokemonEvolution == null ? null : pokemonEvolution!.toJson(),
       };
 }

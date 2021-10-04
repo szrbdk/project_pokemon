@@ -14,11 +14,12 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  cached_network_image: ^3.1.0
   dio: ^4.0.0
   flutter_bloc: ^7.3.0
   flutter_svg: ^0.22.0
-  cached_network_image: ^3.1.0
   palette_generator: ^0.3.1
+  shared_preferences: ^2.0.8
 
 dev_dependencies:
   flutter_test:

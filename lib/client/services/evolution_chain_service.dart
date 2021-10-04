@@ -6,12 +6,12 @@ class EvolutionChainService extends ServiceCore {
   @override
   ServiceEndpoint get endpoint => ServiceEndpoint.evolutionChain;
 
-  String get path => endpoint.string;
+  String get _path => endpoint.string;
 
   Future<PokemonEvolution> evolutionChain(
       {required int id, Map<String, dynamic>? parameters}) {
     return Api().getRequest(
-      path: '$path/$id',
+      path: '$_path/$id',
       parameters: parameters,
       constructor: (response) => PokemonEvolution.fromJson(response),
     );
