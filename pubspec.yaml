@@ -20,6 +20,7 @@ dependencies:
   flutter_svg: ^0.22.0
   palette_generator: ^0.3.1
   shared_preferences: ^2.0.8
+  lottie: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +30,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/png/favorite.png
+    - assets/png/pokeball.png
+    - assets/png/settings.png
+    - assets/png/pokedex.png
+    - assets/svg/pokemon_logo.svg
 
 flutter_intl:
   enabled: true

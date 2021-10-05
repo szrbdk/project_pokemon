@@ -274,6 +274,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Pokédex`
+  String get pokedex {
+    return Intl.message(
+      'Pokédex',
+      name: 'pokedex',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites`
+  String get favorites {
+    return Intl.message(
+      'Favorites',
+      name: 'favorites',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
