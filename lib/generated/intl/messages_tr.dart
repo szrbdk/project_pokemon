@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "abilities": MessageLookupByLibrary.simpleMessage("Yetenekler"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Yakalama Oranı"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Yumurtalar"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Favoriler"),
         "height": MessageLookupByLibrary.simpleMessage("Boy"),
         "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Dil"),
@@ -33,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "next_page": MessageLookupByLibrary.simpleMessage("Sonraki Sayfa"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
+        "pokedex": MessageLookupByLibrary.simpleMessage("Pokédex"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detayı bulunamadı!"),

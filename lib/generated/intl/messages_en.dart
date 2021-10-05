@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "abilities": MessageLookupByLibrary.simpleMessage("Abilities"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Capture Rate"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Eggs"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "next_page": MessageLookupByLibrary.simpleMessage("Next Page"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("No pokémon found!"),
+        "pokedex": MessageLookupByLibrary.simpleMessage("Pokédex"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detail not found!"),

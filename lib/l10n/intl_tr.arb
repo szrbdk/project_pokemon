@@ -20,5 +20,7 @@
     "inc": "inc",
     "abilities": "Yetenekler",
     "pokemon_type": "Türü",
-    "next_evolutions": "Sonraki Evrimler"
+    "next_evolutions": "Sonraki Evrimler",
+    "pokedex": "Pokédex",
+    "favorites": "Favoriler"
 }

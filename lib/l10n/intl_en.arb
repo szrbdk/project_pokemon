@@ -21,5 +21,7 @@
     "inc": "inc",
     "abilities" : "Abilities",
     "pokemon_type": "Type",
-    "next_evolutions": "Next Evolutions"
+    "next_evolutions": "Next Evolutions",
+    "pokedex": "Pokédex",
+    "favorites": "Favorites"
 }
