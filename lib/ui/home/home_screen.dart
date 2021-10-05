@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_page.dart';
 import 'package:project_pokemon/ui/settings/settings_screen.dart';
+import 'package:project_pokemon/utilities/constants/assets.dart';
+import 'package:project_pokemon/utilities/extensions/extensions.dart'
+    show BuildContextExtension;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,58 +17,87 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).project_pokemon),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                    text: '${S.of(context).project}\n',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        ?.apply(fontWeightDelta: 2, fontSizeFactor: 0.7),
+    return SafeArea(
+      child: Scaffold(
+        // appBar: AppBar(
+        //   title: Text(S.of(context).project_pokemon),
+        // ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.only(top: 15, bottom: 15),
+                child: Center(
+                  child: SvgPicture.asset(
+                    Assets.pokemonLogoSvg,
+                    height: context.mquery.size.height * 0.15,
+                    width: context.mquery.size.width * 0.8,
+                    fit: BoxFit.contain,
                   ),
-                  TextSpan(
-                    text: S.of(context).pokemon,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        ?.apply(fontWeightDelta: 2, fontSizeFactor: 1.4),
-                  ),
-                ],
+                ),
               ),
-            ),
+              HomeNavigationItemWidget(
+                assetName: Assets.pokeballPng,
+                label: S.of(context).pokemons,
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => const PokemonListPage()));
+                },
+              ),
+              HomeNavigationItemWidget(
+                assetName: Assets.pokedexPng,
+                label: S.of(context).pokedex,
+                onTap: () {
+                  // TODO add navigation
+                },
+              ),
+              HomeNavigationItemWidget(
+                assetName: Assets.favoritePng,
+                label: S.of(context).favorites,
+                onTap: () {
+                  // TODO add navigation
+                },
+              ),
+              HomeNavigationItemWidget(
+                assetName: Assets.settingsPng,
+                label: S.of(context).settings,
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (_) => const SettingsPage()))
+                      .then((value) {
+                    setState(() {});
+                  });
+                },
+              ),
+            ],
           ),
-          Card(
-            child: ListTile(
-              title: Text(S.of(context).pokemons),
-              onTap: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const PokemonListPage()));
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: Text(S.of(context).settings),
-              onTap: () {
-                Navigator.of(context)
-                    .push(
-                        MaterialPageRoute(builder: (_) => const SettingsPage()))
-                    .then((value) {
-                  setState(() {});
-                });
-              },
-            ),
-          ),
-        ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomeNavigationItemWidget extends StatelessWidget {
+  const HomeNavigationItemWidget({
+    Key? key,
+    required this.label,
+    required this.assetName,
+    required this.onTap,
+  }) : super(key: key);
+
+  final String assetName;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Image.asset(assetName, height: 38, width: 38),
+        title: Text(label),
+        onTap: onTap,
       ),
     );
   }

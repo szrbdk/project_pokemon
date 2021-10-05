@@ -3,6 +3,11 @@ import 'dart:convert';
 import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// SharedPreferences is not the best way to storage this data
+// but it is the fastest way to use.
+
+// SQFLite database, firebase etc. can be used for better performance.
+
 class Storage {
   Storage._();
   static final Storage _instance = Storage._();

@@ -21,6 +21,8 @@ class PokemonDetailScreen extends StatelessWidget {
     required this.title,
     required this.loading,
     required this.detail,
+    required this.isFavorited,
+    required this.favoriteFn,
     this.paletteColor,
   }) : super(key: key);
 
@@ -28,6 +30,8 @@ class PokemonDetailScreen extends StatelessWidget {
   final bool loading;
   final PokemonDetail? detail;
   final PaletteColor? paletteColor;
+  final bool isFavorited;
+  final VoidCallback favoriteFn;
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +46,15 @@ class PokemonDetailScreen extends StatelessWidget {
             .iconTheme
             .copyWith(color: paletteColor?.bodyTextColor),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.favorite_border),
-          )
+          if (!loading) ...[
+            IconButton(
+              onPressed: favoriteFn,
+              icon: Icon(
+                isFavorited ? Icons.favorite : Icons.favorite_border,
+                color: isFavorited ? Colors.red : null,
+              ),
+            ),
+          ],
         ],
       ),
       body: loading

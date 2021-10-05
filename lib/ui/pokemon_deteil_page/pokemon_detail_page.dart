@@ -22,6 +22,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
   bool loading = true;
   PokemonDetail? detail;
   PaletteGenerator? paletteGenerator;
+  bool isFavorited = false;
 
   @override
   void initState() {
@@ -46,7 +47,11 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
             if (path != null) {
               paletteGenerator = await Helper().paletteGenerator(path);
             }
+            isFavorited = state.isFavorited;
             loading = false;
+            setState(() {});
+          } else if (state is FavoriteStatusChangedEvent) {
+            isFavorited = state.newStatus;
             setState(() {});
           }
         },
@@ -55,6 +60,11 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
           loading: loading,
           detail: detail,
           paletteColor: paletteColor,
+          isFavorited: isFavorited,
+          favoriteFn: () {
+            bloc.add(
+                ChangeFavoriteStatusEvent(isFavorited, widget.pokemonName));
+          },
         ),
       ),
     );

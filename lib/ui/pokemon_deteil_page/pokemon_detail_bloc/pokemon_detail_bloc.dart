@@ -8,6 +8,7 @@ import 'package:project_pokemon/client/models/pokemon/pokemon_species.dart';
 import 'package:project_pokemon/client/services/evolution_chain_service.dart';
 import 'package:project_pokemon/client/services/pokemon_service.dart';
 import 'package:project_pokemon/client/services/pokemon_species_service.dart';
+import 'package:project_pokemon/utilities/storage/storage.dart';
 
 part 'pokemon_detail_event.dart';
 part 'pokemon_detail_state.dart';
@@ -19,6 +20,7 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
         emit(SearchingPokemonDetailState());
         late PokemonDetail detail;
         late PokemonSpecies species;
+        bool isFavorited = Storage.i.favorites.contains(event.pokemonName);
         List<Future> _futures = [
           getPokemonDetail(event.pokemonName).then((value) {
             detail = value;
@@ -30,7 +32,13 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
         await Future.wait(_futures);
         detail.pokemonSpecies = species;
         detail.pokemonEvolution = await getPokemonEvolution(detail.id!);
-        emit(PokemonDetailFoundState(detail));
+        emit(PokemonDetailFoundState(detail, isFavorited));
+      } else if (event is ChangeFavoriteStatusEvent) {
+        bool success = event.currentStatus
+            ? await Storage.i.removeFromFavorite(event.pokemonName)
+            : await Storage.i.addToFavorite(event.pokemonName);
+        emit(FavoriteStatusChangedEvent(
+            success ? !event.currentStatus : event.currentStatus));
       }
     });
   }

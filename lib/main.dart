@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:project_pokemon/ui/home/home_screen.dart';
+import 'package:project_pokemon/ui/home/home_page.dart';
 import 'package:project_pokemon/utilities/blocs/app_config_bloc/app_config_bloc.dart';
 import 'package:project_pokemon/utilities/simple_bloc_observer.dart';
 
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             ],
             supportedLocales: S.delegate.supportedLocales,
             theme: ThemeData(primarySwatch: Colors.blue),
-            home: const HomeScreen(),
+            home: const HomePage(),
           );
         },
       ),
