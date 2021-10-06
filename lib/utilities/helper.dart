@@ -10,4 +10,10 @@ class Helper {
             maximumColorCount: 5);
     return paletteGenerator;
   }
+
+  PaletteColor? paletteColor(PaletteGenerator? paletteGenerator) {
+    return paletteGenerator?.lightVibrantColor ??
+        paletteGenerator?.lightMutedColor ??
+        paletteGenerator?.dominantColor;
+  }
 }
