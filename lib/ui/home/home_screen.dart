@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project_pokemon/generated/l10n.dart';
+import 'package:project_pokemon/ui/favorites/favorites_screen.dart';
+import 'package:project_pokemon/ui/pokedex/pokedex_page.dart';
 import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_page.dart';
 import 'package:project_pokemon/ui/settings/settings_screen.dart';
 import 'package:project_pokemon/utilities/constants/assets.dart';
-import 'package:project_pokemon/utilities/extensions/extensions.dart' show BuildContextExtension;
+import 'package:project_pokemon/utilities/extensions/extensions.dart'
+    show BuildContextExtension;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -40,28 +43,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 assetName: Assets.pokeballPng,
                 label: S.of(context).pokemons,
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PokemonListPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => const PokemonListPage()));
                 },
               ),
               HomeNavigationItemWidget(
                 assetName: Assets.pokedexPng,
                 label: S.of(context).pokedex,
                 onTap: () {
-                  // TODO add navigation
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PokedexPage()));
                 },
               ),
               HomeNavigationItemWidget(
                 assetName: Assets.favoritePng,
                 label: S.of(context).favorites,
                 onTap: () {
-                  // TODO add navigation
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FavoritesScreen()));
                 },
               ),
               HomeNavigationItemWidget(
                 assetName: Assets.settingsPng,
                 label: S.of(context).settings,
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SettingsPage())).then((value) {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (_) => const SettingsPage()))
+                      .then((value) {
                     setState(() {});
                   });
                 },
