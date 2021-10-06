@@ -23,8 +23,15 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "abilities": MessageLookupByLibrary.simpleMessage("Yetenekler"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Yakalama Oranı"),
+        "catch_pokemon": MessageLookupByLibrary.simpleMessage("Yakala"),
+        "catching_pokemon":
+            MessageLookupByLibrary.simpleMessage("Pokémon yakalanıyor..."),
+        "dex_is_empty": MessageLookupByLibrary.simpleMessage("Pokédex boş!"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Yumurtalar"),
+        "failed": MessageLookupByLibrary.simpleMessage("Başarısız"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favoriler"),
+        "favorites_not_found":
+            MessageLookupByLibrary.simpleMessage("Favori Pokémon listesi boş!"),
         "height": MessageLookupByLibrary.simpleMessage("Boy"),
         "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Dil"),
@@ -34,8 +41,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "next_page": MessageLookupByLibrary.simpleMessage("Sonraki Sayfa"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("Pokémon bulunamadı!"),
+        "okey": MessageLookupByLibrary.simpleMessage("Tamam"),
+        "please_wait": MessageLookupByLibrary.simpleMessage("Lütfen Bekleyin!"),
         "pokedex": MessageLookupByLibrary.simpleMessage("Pokédex"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemon_catch_failed":
+            MessageLookupByLibrary.simpleMessage("Pokémon yakalanamadı."),
+        "pokemon_catched":
+            MessageLookupByLibrary.simpleMessage("Pokémon yakalandı."),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detayı bulunamadı!"),
         "pokemon_type": MessageLookupByLibrary.simpleMessage("Türü"),
@@ -46,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "species": MessageLookupByLibrary.simpleMessage("Türler"),
         "stats": MessageLookupByLibrary.simpleMessage("İstatikler"),
+        "successful": MessageLookupByLibrary.simpleMessage("Başarılı"),
         "unknown_pokemon":
             MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon"),
         "weight": MessageLookupByLibrary.simpleMessage("Ağırlık")

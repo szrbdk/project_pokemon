@@ -294,6 +294,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Favorited Pokémon list is empty!`
+  String get favorites_not_found {
+    return Intl.message(
+      'Favorited Pokémon list is empty!',
+      name: 'favorites_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokédex is empty!`
+  String get dex_is_empty {
+    return Intl.message(
+      'Pokédex is empty!',
+      name: 'dex_is_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Catch`
+  String get catch_pokemon {
+    return Intl.message(
+      'Catch',
+      name: 'catch_pokemon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Okey`
+  String get okey {
+    return Intl.message(
+      'Okey',
+      name: 'okey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Wait!`
+  String get please_wait {
+    return Intl.message(
+      'Please Wait!',
+      name: 'please_wait',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Catching Pokémon...`
+  String get catching_pokemon {
+    return Intl.message(
+      'Catching Pokémon...',
+      name: 'catching_pokemon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successful`
+  String get successful {
+    return Intl.message(
+      'Successful',
+      name: 'successful',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed`
+  String get failed {
+    return Intl.message(
+      'Failed',
+      name: 'failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon catched.`
+  String get pokemon_catched {
+    return Intl.message(
+      'Pokémon catched.',
+      name: 'pokemon_catched',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon catch failed.`
+  String get pokemon_catch_failed {
+    return Intl.message(
+      'Pokémon catch failed.',
+      name: 'pokemon_catch_failed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

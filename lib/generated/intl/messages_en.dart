@@ -29,8 +29,16 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "abilities": MessageLookupByLibrary.simpleMessage("Abilities"),
         "capture_rate": MessageLookupByLibrary.simpleMessage("Capture Rate"),
+        "catch_pokemon": MessageLookupByLibrary.simpleMessage("Catch"),
+        "catching_pokemon":
+            MessageLookupByLibrary.simpleMessage("Catching Pokémon..."),
+        "dex_is_empty":
+            MessageLookupByLibrary.simpleMessage("Pokédex is empty!"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Eggs"),
+        "failed": MessageLookupByLibrary.simpleMessage("Failed"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
+        "favorites_not_found": MessageLookupByLibrary.simpleMessage(
+            "Favorited Pokémon list is empty!"),
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "inc": MessageLookupByLibrary.simpleMessage("inc"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -41,8 +49,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "next_page": MessageLookupByLibrary.simpleMessage("Next Page"),
         "no_pokemon_found":
             MessageLookupByLibrary.simpleMessage("No pokémon found!"),
+        "okey": MessageLookupByLibrary.simpleMessage("Okey"),
+        "please_wait": MessageLookupByLibrary.simpleMessage("Please Wait!"),
         "pokedex": MessageLookupByLibrary.simpleMessage("Pokédex"),
         "pokemon": MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemon_catch_failed":
+            MessageLookupByLibrary.simpleMessage("Pokémon catch failed."),
+        "pokemon_catched":
+            MessageLookupByLibrary.simpleMessage("Pokémon catched."),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detail not found!"),
         "pokemon_type": MessageLookupByLibrary.simpleMessage("Type"),
@@ -53,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "species": MessageLookupByLibrary.simpleMessage("Species"),
         "stats": MessageLookupByLibrary.simpleMessage("Stats"),
+        "successful": MessageLookupByLibrary.simpleMessage("Successful"),
         "unknown_pokemon":
             MessageLookupByLibrary.simpleMessage("Unknown Pokémon"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight")

@@ -22,5 +22,15 @@
     "pokemon_type": "Türü",
     "next_evolutions": "Sonraki Evrimler",
     "pokedex": "Pokédex",
-    "favorites": "Favoriler"
+    "favorites": "Favoriler",
+    "favorites_not_found": "Favori Pokémon listesi boş!",
+    "dex_is_empty": "Pokédex boş!",
+    "catch_pokemon": "Yakala",
+    "okey": "Tamam",
+    "please_wait": "Lütfen Bekleyin!",
+    "catching_pokemon": "Pokémon yakalanıyor...",
+    "successful": "Başarılı",
+    "failed": "Başarısız",
+    "pokemon_catched": "Pokémon yakalandı.",
+    "pokemon_catch_failed": "Pokémon yakalanamadı."
 }
