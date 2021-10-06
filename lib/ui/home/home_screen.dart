@@ -4,8 +4,7 @@ import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_page.dart';
 import 'package:project_pokemon/ui/settings/settings_screen.dart';
 import 'package:project_pokemon/utilities/constants/assets.dart';
-import 'package:project_pokemon/utilities/extensions/extensions.dart'
-    show BuildContextExtension;
+import 'package:project_pokemon/utilities/extensions/extensions.dart' show BuildContextExtension;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,12 +16,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        // appBar: AppBar(
-        //   title: Text(S.of(context).project_pokemon),
-        // ),
-        body: SingleChildScrollView(
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text(S.of(context).project_pokemon),
+      // ),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(height: 30),
@@ -41,8 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 assetName: Assets.pokeballPng,
                 label: S.of(context).pokemons,
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => const PokemonListPage()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PokemonListPage()));
                 },
               ),
               HomeNavigationItemWidget(
@@ -63,10 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 assetName: Assets.settingsPng,
                 label: S.of(context).settings,
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(
-                          builder: (_) => const SettingsPage()))
-                      .then((value) {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SettingsPage())).then((value) {
                     setState(() {});
                   });
                 },
