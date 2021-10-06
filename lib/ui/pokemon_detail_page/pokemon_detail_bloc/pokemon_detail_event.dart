@@ -13,3 +13,8 @@ class ChangeFavoriteStatusEvent extends PokemonDetailEvent {
   final String pokemonName;
   ChangeFavoriteStatusEvent(this.currentStatus, this.pokemonName);
 }
+
+class CatchPokemonEvent extends PokemonDetailEvent {
+  final PokemonDetail detail;
+  CatchPokemonEvent(this.detail);
+}

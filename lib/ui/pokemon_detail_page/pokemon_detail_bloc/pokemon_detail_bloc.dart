@@ -39,6 +39,11 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
             : await Storage.i.addToFavorite(event.pokemonName);
         emit(FavoriteStatusChangedEvent(
             success ? !event.currentStatus : event.currentStatus));
+      } else if (event is CatchPokemonEvent) {
+        emit(PokemonCatchingState());
+        bool success = await Storage.i.addToDex(event.detail);
+        await Future.delayed(const Duration(seconds: 2));
+        emit(PokemonCatchStatusState(success));
       }
     });
   }

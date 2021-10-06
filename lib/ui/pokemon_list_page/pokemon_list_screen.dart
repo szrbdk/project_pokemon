@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
 import 'package:project_pokemon/generated/l10n.dart';
-import 'package:project_pokemon/ui/pokemon_deteil_page/pokemon_detail_page.dart';
+import 'package:project_pokemon/ui/pokemon_detail_page/pokemon_detail_page.dart';
 import 'package:project_pokemon/utilities/extensions/extensions.dart'
     show StringCasingExtension;
 

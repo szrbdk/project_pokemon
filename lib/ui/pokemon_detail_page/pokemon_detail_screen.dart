@@ -20,10 +20,12 @@ class PokemonDetailScreen extends StatelessWidget {
     Key? key,
     required this.title,
     required this.loading,
+    required this.isDexStatusChanging,
     required this.detail,
     required this.isFavorited,
-    required this.favoriteFn,
+    this.favoriteFn,
     this.paletteColor,
+    this.catchPokemonFn,
   }) : super(key: key);
 
   final String title;
@@ -31,7 +33,9 @@ class PokemonDetailScreen extends StatelessWidget {
   final PokemonDetail? detail;
   final PaletteColor? paletteColor;
   final bool isFavorited;
-  final VoidCallback favoriteFn;
+  final bool isDexStatusChanging;
+  final VoidCallback? favoriteFn;
+  final void Function(PokemonDetail value)? catchPokemonFn;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +43,18 @@ class PokemonDetailScreen extends StatelessWidget {
     Size size = context.mquery.size;
     return Scaffold(
       backgroundColor: paletteColor?.color,
+      floatingActionButton: catchPokemonFn != null && detail != null
+          ? FloatingActionButton.extended(
+              onPressed: isDexStatusChanging
+                  ? null
+                  : () {
+                      catchPokemonFn!(detail!);
+                    },
+              label: isDexStatusChanging
+                  ? const CircularProgressIndicator()
+                  : Text(S.of(context).catch_pokemon),
+            )
+          : null,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: loading ? Colors.transparent : paletteColor?.color,
@@ -46,7 +62,7 @@ class PokemonDetailScreen extends StatelessWidget {
             .iconTheme
             .copyWith(color: paletteColor?.bodyTextColor),
         actions: [
-          if (!loading) ...[
+          if (!loading && favoriteFn != null) ...[
             IconButton(
               onPressed: favoriteFn,
               icon: Icon(

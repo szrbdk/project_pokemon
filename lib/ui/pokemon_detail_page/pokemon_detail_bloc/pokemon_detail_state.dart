@@ -7,6 +7,8 @@ class PokemonDetailInitial extends PokemonDetailState {}
 
 class SearchingPokemonDetailState extends PokemonDetailState {}
 
+class PokemonCatchingState extends PokemonDetailState {}
+
 class PokemonDetailFoundState extends PokemonDetailState {
   final PokemonDetail pokemonDetail;
   final bool isFavorited;
@@ -16,4 +18,9 @@ class PokemonDetailFoundState extends PokemonDetailState {
 class FavoriteStatusChangedEvent extends PokemonDetailState {
   final bool newStatus;
   FavoriteStatusChangedEvent(this.newStatus);
+}
+
+class PokemonCatchStatusState extends PokemonDetailState {
+  final bool status;
+  PokemonCatchStatusState(this.status);
 }
