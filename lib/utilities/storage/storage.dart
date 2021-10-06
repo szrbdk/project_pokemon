@@ -31,12 +31,12 @@ class Storage {
       _favorites.addAll(_favItems);
     }
     if (_dexItems != null) {
-      Map<int, dynamic> _dexMap = json.decode(_dexItems);
+      Map<String, dynamic> _dexMap = json.decode(_dexItems);
       _dex.clear();
       _dexMap.forEach((key, value) {
-        if (value is Map) {
-          _dex.putIfAbsent(
-              key, () => PokemonDetail.fromJson(value as Map<String, dynamic>));
+        if (value is Map && int.tryParse(key) != null) {
+          _dex.putIfAbsent(int.tryParse(key)!,
+              () => PokemonDetail.fromJson(value as Map<String, dynamic>));
         }
       });
     }
@@ -84,10 +84,9 @@ class Storage {
 
   Future<bool> _saveDex() async {
     final prefs = await SharedPreferences.getInstance();
-    bool res = await prefs.setString(
-        _dexKey,
-        json.encode(Map<String, dynamic>.from(
-            dex.map((key, value) => MapEntry(key, value.toJson())))));
+    var map = Map<String, dynamic>.from(
+        dex.map((key, value) => MapEntry("$key", value.toJson())));
+    bool res = await prefs.setString(_dexKey, json.encode(map));
     return Future.value(res);
   }
 }
