@@ -4,7 +4,7 @@ import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/pokedex/model/pokedex_item.dart';
 import 'package:project_pokemon/ui/pokemon_detail_page/pokemon_detail_screen.dart';
 import 'package:project_pokemon/utilities/extensions/extensions.dart'
-    show StringCasingExtension, BuildContextExtension;
+    show StringCasingExtension;
 
 class PokedexScreen extends StatelessWidget {
   const PokedexScreen({
