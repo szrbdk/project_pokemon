@@ -65,11 +65,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pokémon catched."),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detail not found!"),
+        "pokemon_release_failed":
+            MessageLookupByLibrary.simpleMessage("Pokémon release failed."),
+        "pokemon_released":
+            MessageLookupByLibrary.simpleMessage("Pokémon released."),
+        "pokemon_releasing":
+            MessageLookupByLibrary.simpleMessage("Pokémon releasing..."),
         "pokemon_type": MessageLookupByLibrary.simpleMessage("Type"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémons"),
         "project": MessageLookupByLibrary.simpleMessage("Project"),
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Project Pokémon"),
+        "release_pokemon": MessageLookupByLibrary.simpleMessage("Release"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "species": MessageLookupByLibrary.simpleMessage("Species"),
         "stats": MessageLookupByLibrary.simpleMessage("Stats"),

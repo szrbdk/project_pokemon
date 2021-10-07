@@ -28,6 +28,15 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
           ]
         ]);
         emit(PokedexItemListGeneratedState(pokedexItemList));
+      } else if (event is ReleasePokemonEvent) {
+        emit(PokemonReleasingState(event.id));
+        bool result = await Storage.i.removeFromDex(event.id);
+        await Future.delayed(const Duration(seconds: 3));
+        if (result) {
+          emit(PokemonReleasedState(event.id));
+        } else {
+          emit(PokemonReleaseFailedState(event.id));
+        }
       }
     });
   }

@@ -57,11 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pokémon yakalandı."),
         "pokemon_detail_not_found":
             MessageLookupByLibrary.simpleMessage("Pokémon detayı bulunamadı!"),
+        "pokemon_release_failed":
+            MessageLookupByLibrary.simpleMessage("Pokémon bırakılamadı."),
+        "pokemon_released":
+            MessageLookupByLibrary.simpleMessage("Pokémon bırakıldı."),
+        "pokemon_releasing":
+            MessageLookupByLibrary.simpleMessage("Pokémon bırakılıyor..."),
         "pokemon_type": MessageLookupByLibrary.simpleMessage("Türü"),
         "pokemons": MessageLookupByLibrary.simpleMessage("Pokémonlar"),
         "project": MessageLookupByLibrary.simpleMessage("Proje"),
         "project_pokemon":
             MessageLookupByLibrary.simpleMessage("Proje Pokémon"),
+        "release_pokemon":
+            MessageLookupByLibrary.simpleMessage("Serbest Bırak"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "species": MessageLookupByLibrary.simpleMessage("Türler"),
         "stats": MessageLookupByLibrary.simpleMessage("İstatikler"),

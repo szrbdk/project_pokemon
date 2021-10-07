@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   ListTile languageButtonWidget(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.language),
+      leading: const Icon(Icons.language),
       title: Text(S.of(context).language),
       onTap: () {
         showModalBottomSheet(
@@ -63,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   ListTile themeButtonWidget(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.amp_stories),
+      leading: const Icon(Icons.amp_stories),
       title: Text(S.of(context).theme),
       onTap: () {
         showModalBottomSheet(

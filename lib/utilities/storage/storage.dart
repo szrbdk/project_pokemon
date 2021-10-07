@@ -67,7 +67,7 @@ class Storage {
 
   Future<bool> removeFromDex(int key) async {
     bool res = false;
-    if (!_dex.containsKey(key)) {
+    if (_dex.containsKey(key)) {
       _dex.remove(key);
       res = await _saveDex();
     }

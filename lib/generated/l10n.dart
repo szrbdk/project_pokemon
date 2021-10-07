@@ -419,6 +419,46 @@ class S {
       args: [themeMode],
     );
   }
+
+  /// `Release`
+  String get release_pokemon {
+    return Intl.message(
+      'Release',
+      name: 'release_pokemon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon releasing...`
+  String get pokemon_releasing {
+    return Intl.message(
+      'Pokémon releasing...',
+      name: 'pokemon_releasing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon released.`
+  String get pokemon_released {
+    return Intl.message(
+      'Pokémon released.',
+      name: 'pokemon_released',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon release failed.`
+  String get pokemon_release_failed {
+    return Intl.message(
+      'Pokémon release failed.',
+      name: 'pokemon_release_failed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

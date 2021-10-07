@@ -104,7 +104,6 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
           }
         },
         child: PokemonDetailScreen(
-          title: widget.pokemonName,
           loading: loading,
           detail: detail,
           paletteColor: Helper().paletteColor(paletteGenerator),

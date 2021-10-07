@@ -4,15 +4,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider {
   ThemeProvider._();
-  static ThemeProvider _instance = ThemeProvider._();
+  static final ThemeProvider _instance = ThemeProvider._();
   static ThemeProvider get i => _instance;
 
   ThemeMode themeMode = ThemeMode.system;
   ThemeData get darkTheme => _darkTheme;
   ThemeData get lightTheme => _lightTheme;
 
-  ThemeData _darkTheme = ThemeData.dark();
-  ThemeData _lightTheme = ThemeData.light();
+  final ThemeData _darkTheme = ThemeData.dark();
+  final ThemeData _lightTheme = ThemeData.light();
 
   Future<void> getThemeSettigsFromStorage() async {
     final prefs = await SharedPreferences.getInstance();
@@ -23,7 +23,6 @@ class ThemeProvider {
           orElse: () => themeMode);
     }
   }
-
 
   Future<bool> saveThemeSettingsFromStorage(ThemeMode mode) async {
     final prefs = await SharedPreferences.getInstance();

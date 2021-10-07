@@ -34,5 +34,9 @@
     "pokemon_catched": "Pokémon yakalandı.",
     "pokemon_catch_failed": "Pokémon yakalanamadı.",
     "theme": "Tema",
-    "theme_mode": "{themeMode, select, dark {Koyu} light {Açık} other {Sistem}}"
+    "theme_mode": "{themeMode, select, dark {Koyu} light {Açık} other {Sistem}}",
+    "release_pokemon": "Serbest Bırak",
+    "pokemon_releasing": "Pokémon bırakılıyor...",
+    "pokemon_released": "Pokémon bırakıldı.",
+    "pokemon_release_failed": "Pokémon bırakılamadı."
 }

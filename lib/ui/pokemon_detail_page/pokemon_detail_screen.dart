@@ -7,6 +7,7 @@ import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_evolution.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_type.dart';
 import 'package:project_pokemon/generated/l10n.dart';
+import 'package:project_pokemon/ui/pokedex/model/pokedex_item.dart';
 import 'package:project_pokemon/utilities/extensions/extensions.dart'
     show BuildContextExtension, StringCasingExtension;
 import 'package:project_pokemon/widgets/pokemon_artwork_widget.dart';
@@ -16,9 +17,17 @@ import 'package:project_pokemon/widgets/pokemon_stat_bar_widget.dart';
 import 'package:project_pokemon/widgets/section_title.dart';
 
 class PokemonDetailScreen extends StatelessWidget {
+  /// Shows pokémon's details.
+  ///
+  /// If this page called from Pokédex Page; [dexId], [dexStatus]
+  /// and [releasePokemonFn] are required for `Release Pokémon` functionality.
+  /// Otherwise not required.
+  ///
+  /// [favoriteFn] is required for `favorite` functionaliy.
+  ///
+  /// [catchPokemonFn] is required for `Catch Pokémon` functionality.
   const PokemonDetailScreen({
     Key? key,
-    required this.title,
     required this.loading,
     required this.isDexStatusChanging,
     required this.detail,
@@ -26,9 +35,16 @@ class PokemonDetailScreen extends StatelessWidget {
     this.favoriteFn,
     this.paletteColor,
     this.catchPokemonFn,
+    this.dexId,
+    this.dexStatus,
+    this.releasePokemonFn,
   }) : super(key: key);
 
-  final String title;
+  /// Cached pokemon id on Pokédex
+  final int? dexId;
+
+  /// Pokémons current status in Pokédex
+  final PokedexStatus? dexStatus;
   final bool loading;
   final PokemonDetail? detail;
   final PaletteColor? paletteColor;
@@ -36,25 +52,22 @@ class PokemonDetailScreen extends StatelessWidget {
   final bool isDexStatusChanging;
   final VoidCallback? favoriteFn;
   final void Function(PokemonDetail value)? catchPokemonFn;
+  final VoidCallback? releasePokemonFn;
+
+  bool get _isCatchedPokemon => dexId != null;
 
   @override
   Widget build(BuildContext context) {
+    print("---- ${dexStatus}");
     bool isPortrait = context.mquery.orientation == Orientation.portrait;
     Size size = context.mquery.size;
     return Scaffold(
       backgroundColor: paletteColor?.color,
-      floatingActionButton: catchPokemonFn != null && detail != null
-          ? FloatingActionButton.extended(
-              onPressed: isDexStatusChanging
-                  ? null
-                  : () {
-                      catchPokemonFn!(detail!);
-                    },
-              label: isDexStatusChanging
-                  ? const CircularProgressIndicator()
-                  : Text(S.of(context).catch_pokemon),
-            )
-          : null,
+      floatingActionButton: detail == null
+          ? null
+          : _isCatchedPokemon
+              ? releasePokemon(context)
+              : catchPokemonFAB(context),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: loading ? Colors.transparent : paletteColor?.color,
@@ -105,6 +118,36 @@ class PokemonDetailScreen extends StatelessWidget {
                   ],
                 ),
     );
+  }
+
+  Widget? catchPokemonFAB(BuildContext context) {
+    return catchPokemonFn != null
+        ? FloatingActionButton.extended(
+            onPressed: isDexStatusChanging
+                ? null
+                : () {
+                    catchPokemonFn!(detail!);
+                  },
+            label: isDexStatusChanging
+                ? const CircularProgressIndicator(color: Colors.white)
+                : Text(S.of(context).catch_pokemon),
+          )
+        : null;
+  }
+
+  Widget? releasePokemon(BuildContext context) {
+    return releasePokemonFn != null && dexStatus != PokedexStatus.released
+        ? FloatingActionButton.extended(
+            onPressed: dexStatus == PokedexStatus.statusChanging
+                ? null
+                : () {
+                    releasePokemonFn!();
+                  },
+            label: dexStatus == PokedexStatus.statusChanging
+                ? const CircularProgressIndicator(color: Colors.white)
+                : Text(S.of(context).release_pokemon),
+          )
+        : null;
   }
 }
 

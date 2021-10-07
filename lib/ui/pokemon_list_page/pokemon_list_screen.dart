@@ -32,7 +32,12 @@ class PokemonListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 if (index >= pokemonList.length) {
                   return loading
-                      ? const CircularProgressIndicator()
+                      ? const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CircularProgressIndicator(),
+                          ),
+                        )
                       : noMorePage
                           ? const SizedBox()
                           : nextPageButton(context);
@@ -58,9 +63,12 @@ class PokemonListScreen extends StatelessWidget {
   }
 
   Widget nextPageButton(BuildContext context) {
-    return ElevatedButton(
-      child: Text(S.of(context).next_page),
-      onPressed: nextPageFn,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+        child: Text(S.of(context).next_page),
+        onPressed: nextPageFn,
+      ),
     );
   }
 }

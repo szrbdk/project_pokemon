@@ -35,5 +35,9 @@
     "pokemon_catched": "Pokémon catched.",
     "pokemon_catch_failed": "Pokémon catch failed.",
     "theme": "Theme",
-    "theme_mode": "{themeMode, select, dark {Dark} light {Light} other {System}}"
+    "theme_mode": "{themeMode, select, dark {Dark} light {Light} other {System}}",
+    "release_pokemon": "Release",
+    "pokemon_releasing": "Pokémon releasing...",
+    "pokemon_released": "Pokémon released.",
+    "pokemon_release_failed": "Pokémon release failed."
 }

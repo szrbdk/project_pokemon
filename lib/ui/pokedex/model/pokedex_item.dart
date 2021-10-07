@@ -4,7 +4,7 @@ import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
 class PokedexItem {
   final int timeStamp;
   final PokemonDetail detail;
-  final PokedexStatus status;
+  PokedexStatus status;
   final PaletteColor? paletteColor;
 
   PokedexItem({

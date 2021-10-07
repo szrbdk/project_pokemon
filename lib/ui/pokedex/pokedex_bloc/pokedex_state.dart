@@ -11,3 +11,18 @@ class PokedexItemListGeneratedState extends PokedexState {
   final List<PokedexItem> pokedexItemList;
   PokedexItemListGeneratedState(this.pokedexItemList);
 }
+
+class PokemonReleasingState extends PokedexState {
+  final int id;
+  PokemonReleasingState(this.id);
+}
+
+class PokemonReleasedState extends PokedexState {
+  final int id;
+  PokemonReleasedState(this.id);
+}
+
+class PokemonReleaseFailedState extends PokedexState {
+  final int id;
+  PokemonReleaseFailedState(this.id);
+}
