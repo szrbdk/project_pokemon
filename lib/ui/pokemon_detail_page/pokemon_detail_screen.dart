@@ -58,7 +58,6 @@ class PokemonDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("---- ${dexStatus}");
     bool isPortrait = context.mquery.orientation == Orientation.portrait;
     Size size = context.mquery.size;
     return Scaffold(

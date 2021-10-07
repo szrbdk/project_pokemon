@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/home/home_page.dart';
 import 'package:project_pokemon/utilities/blocs/app_config_bloc/app_config_bloc.dart';
 import 'package:project_pokemon/utilities/simple_bloc_observer.dart';
 import 'package:project_pokemon/utilities/theme/theme_provider.dart';
-
-import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, state) {
           if (state is LocaleChangedState) {
             locale = state.locale;
-          }else if (state is ThemeChangedState){
+          } else if (state is ThemeChangedState) {
             themeMode = state.themeMode;
           }
           return MaterialApp(
