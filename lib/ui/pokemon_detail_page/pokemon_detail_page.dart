@@ -32,6 +32,12 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
   bool _catchingPokemonDialogActive = false;
 
   @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     bloc.add(GetPokemonDetailWithName(widget.pokemonName));

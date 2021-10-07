@@ -26,6 +26,12 @@ class _PokemonListPageState extends State<PokemonListPage> {
   }
 
   @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => bloc,

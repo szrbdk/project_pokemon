@@ -23,15 +23,23 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  AppConfigBloc bloc = AppConfigBloc();
   Locale locale = const Locale('en');
 
   ThemeMode themeMode = ThemeProvider.i.themeMode;
 
   @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppConfigBloc(),
-      child: BlocBuilder<AppConfigBloc, AppConfigState>(
+      create: (context) => bloc,
+      child: BlocBuilder(
+        bloc: bloc,
         builder: (context, state) {
           if (state is LocaleChangedState) {
             locale = state.locale;
