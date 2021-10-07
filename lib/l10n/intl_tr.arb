@@ -32,5 +32,7 @@
     "successful": "Başarılı",
     "failed": "Başarısız",
     "pokemon_catched": "Pokémon yakalandı.",
-    "pokemon_catch_failed": "Pokémon yakalanamadı."
+    "pokemon_catch_failed": "Pokémon yakalanamadı.",
+    "theme": "Tema",
+    "theme_mode": "{themeMode, select, dark {Koyu} light {Açık} other {Sistem}}"
 }

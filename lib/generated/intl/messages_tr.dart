@@ -19,6 +19,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'tr';
 
+  static String m1(themeMode) => "${Intl.select(themeMode, {
+            'dark': 'Koyu',
+            'light': 'Açık',
+            'other': 'Sistem',
+          })}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "abilities": MessageLookupByLibrary.simpleMessage("Yetenekler"),
@@ -60,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "species": MessageLookupByLibrary.simpleMessage("Türler"),
         "stats": MessageLookupByLibrary.simpleMessage("İstatikler"),
         "successful": MessageLookupByLibrary.simpleMessage("Başarılı"),
+        "theme": MessageLookupByLibrary.simpleMessage("Tema"),
+        "theme_mode": m1,
         "unknown_pokemon":
             MessageLookupByLibrary.simpleMessage("Bilinmeyen Pokémon"),
         "weight": MessageLookupByLibrary.simpleMessage("Ağırlık")

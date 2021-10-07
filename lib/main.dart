@@ -4,11 +4,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:project_pokemon/ui/home/home_page.dart';
 import 'package:project_pokemon/utilities/blocs/app_config_bloc/app_config_bloc.dart';
 import 'package:project_pokemon/utilities/simple_bloc_observer.dart';
+import 'package:project_pokemon/utilities/theme/theme_provider.dart';
 
 import 'generated/l10n.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ThemeProvider.i.getThemeSettigsFromStorage();
   Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }
@@ -23,6 +25,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   Locale locale = const Locale('en');
 
+  ThemeMode themeMode = ThemeProvider.i.themeMode;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -31,10 +35,15 @@ class _MyAppState extends State<MyApp> {
         builder: (context, state) {
           if (state is LocaleChangedState) {
             locale = state.locale;
+          }else if (state is ThemeChangedState){
+            themeMode = state.themeMode;
           }
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             locale: locale,
+            themeMode: themeMode,
+            theme: ThemeProvider.i.lightTheme,
+            darkTheme: ThemeProvider.i.darkTheme,
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -42,7 +51,6 @@ class _MyAppState extends State<MyApp> {
               GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: S.delegate.supportedLocales,
-            theme: ThemeData(primarySwatch: Colors.blue),
             home: const HomePage(),
           );
         },

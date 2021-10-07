@@ -394,6 +394,31 @@ class S {
       args: [],
     );
   }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{themeMode, select, dark {Dark} light {Light} other {System}}`
+  String theme_mode(Object themeMode) {
+    return Intl.select(
+      themeMode,
+      {
+        'dark': 'Dark',
+        'light': 'Light',
+        'other': 'System',
+      },
+      name: 'theme_mode',
+      desc: '',
+      args: [themeMode],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

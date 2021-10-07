@@ -25,6 +25,12 @@ class MessageLookup extends MessageLookupByLibrary {
             'other': '-',
           })}";
 
+  static String m1(themeMode) => "${Intl.select(themeMode, {
+            'dark': 'Dark',
+            'light': 'Light',
+            'other': 'System',
+          })}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "abilities": MessageLookupByLibrary.simpleMessage("Abilities"),
@@ -68,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "species": MessageLookupByLibrary.simpleMessage("Species"),
         "stats": MessageLookupByLibrary.simpleMessage("Stats"),
         "successful": MessageLookupByLibrary.simpleMessage("Successful"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+        "theme_mode": m1,
         "unknown_pokemon":
             MessageLookupByLibrary.simpleMessage("Unknown Pokémon"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight")

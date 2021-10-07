@@ -7,3 +7,8 @@ class LocaleChangedEvent extends AppConfigEvent {
   final Locale locale;
   LocaleChangedEvent(this.locale);
 }
+
+class ThemeChangedEvent extends AppConfigEvent {
+  final ThemeMode themeMode;
+  ThemeChangedEvent(this.themeMode);
+}

@@ -1,3 +1,4 @@
 {
-    "dart.flutterSdkPath": "/Users/sezerbudak/dev/flutter-2.0/flutter"
+    "dart.flutterSdkPath": "/Users/sezerbudak/dev/flutter-2.0/flutter",
+    "dart.lineLength": 80
 }

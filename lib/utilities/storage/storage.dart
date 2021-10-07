@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
+import 'package:project_pokemon/utilities/constants/storage_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // SharedPreferences is not the best way to storage this data
@@ -13,9 +14,6 @@ class Storage {
   static final Storage _instance = Storage._();
   static Storage get i => _instance;
 
-  final String _dexKey = 'dex';
-  final String _favoriteKey = 'fav';
-
   final List<String> _favorites = [];
   final Map<int, PokemonDetail> _dex = {};
 
@@ -24,8 +22,8 @@ class Storage {
 
   Future<void> initializeStorage() async {
     final prefs = await SharedPreferences.getInstance();
-    List<String>? _favItems = prefs.getStringList(_favoriteKey);
-    String? _dexItems = prefs.getString(_dexKey);
+    List<String>? _favItems = prefs.getStringList(StorageKey.favorites);
+    String? _dexItems = prefs.getString(StorageKey.pokedex);
     if (_favItems != null) {
       _favorites.clear();
       _favorites.addAll(_favItems);
@@ -78,7 +76,7 @@ class Storage {
 
   Future<bool> _saveFavorite() async {
     final prefs = await SharedPreferences.getInstance();
-    bool res = await prefs.setStringList(_favoriteKey, _favorites);
+    bool res = await prefs.setStringList(StorageKey.favorites, _favorites);
     return Future.value(res);
   }
 
@@ -86,7 +84,7 @@ class Storage {
     final prefs = await SharedPreferences.getInstance();
     var map = Map<String, dynamic>.from(
         dex.map((key, value) => MapEntry("$key", value.toJson())));
-    bool res = await prefs.setString(_dexKey, json.encode(map));
+    bool res = await prefs.setString(StorageKey.pokedex, json.encode(map));
     return Future.value(res);
   }
 }

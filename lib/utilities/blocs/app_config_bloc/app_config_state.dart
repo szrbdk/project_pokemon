@@ -9,3 +9,8 @@ class LocaleChangedState extends AppConfigState {
   final Locale locale;
   LocaleChangedState(this.locale);
 }
+
+class ThemeChangedState extends AppConfigState {
+  final ThemeMode themeMode;
+  ThemeChangedState(this.themeMode);
+}

@@ -33,5 +33,7 @@
     "successful": "Successful",
     "failed": "Failed",
     "pokemon_catched": "Pokémon catched.",
-    "pokemon_catch_failed": "Pokémon catch failed."
+    "pokemon_catch_failed": "Pokémon catch failed.",
+    "theme": "Theme",
+    "theme_mode": "{themeMode, select, dark {Dark} light {Light} other {System}}"
 }
