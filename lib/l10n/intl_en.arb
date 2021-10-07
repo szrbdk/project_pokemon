@@ -39,5 +39,6 @@
     "release_pokemon": "Release",
     "pokemon_releasing": "Pokémon releasing...",
     "pokemon_released": "Pokémon released.",
-    "pokemon_release_failed": "Pokémon release failed."
+    "pokemon_release_failed": "Pokémon release failed.",
+    "error": "Error"
 }

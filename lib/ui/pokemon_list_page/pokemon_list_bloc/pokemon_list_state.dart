@@ -13,3 +13,8 @@ class PokemonListFoundState extends PokemonListState {
 
   PokemonListFoundState(this.pokemonList, this.noMorePage);
 }
+
+class PokemonListErroState extends PokemonListState {
+  final dynamic error;
+  PokemonListErroState(this.error);
+}

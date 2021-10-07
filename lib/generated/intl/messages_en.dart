@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dex_is_empty":
             MessageLookupByLibrary.simpleMessage("Pokédex is empty!"),
         "egg_groups": MessageLookupByLibrary.simpleMessage("Eggs"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "failed": MessageLookupByLibrary.simpleMessage("Failed"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "favorites_not_found": MessageLookupByLibrary.simpleMessage(

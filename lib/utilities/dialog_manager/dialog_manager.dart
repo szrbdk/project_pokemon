@@ -58,4 +58,16 @@ class DialogManager {
       addDefaultButton: true,
     );
   }
+
+  AlertDialog simpleErrorDialog({
+    required BuildContext context,
+    required dynamic error,
+  }) {
+    return _basicDialog(
+      context: context,
+      title: Text(S.of(context).error),
+      content: [Text('$error')],
+      addDefaultButton: true,
+    );
+  }
 }

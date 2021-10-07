@@ -16,16 +16,20 @@ class PokemonListBloc extends Bloc<PokemonListEvent, PokemonListState> {
     on<PokemonListEvent>((event, emit) async {
       if (event is GetPokemonsEvent) {
         emit(GettingPokemonListState());
-        BaseApiResponse result = await getPokemons();
-        if (result.next != null) {
-          Uri uri = Uri.parse(result.next!);
-          if (uri.queryParameters.containsKey('offset') &&
-              uri.queryParameters['offset'] != null) {
-            _currentIndex =
-                int.tryParse(uri.queryParameters['offset']!) ?? _currentIndex;
+        try {
+          BaseApiResponse result = await getPokemons();
+          if (result.next != null) {
+            Uri uri = Uri.parse(result.next!);
+            if (uri.queryParameters.containsKey('offset') &&
+                uri.queryParameters['offset'] != null) {
+              _currentIndex =
+                  int.tryParse(uri.queryParameters['offset']!) ?? _currentIndex;
+            }
           }
+          emit(PokemonListFoundState(result.results!, result.next == null));
+        } catch (error) {
+          emit(PokemonListErroState(error));
         }
-        emit(PokemonListFoundState(result.results!, result.next == null));
       }
     });
   }

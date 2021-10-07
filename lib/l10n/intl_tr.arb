@@ -38,5 +38,6 @@
     "release_pokemon": "Serbest Bırak",
     "pokemon_releasing": "Pokémon bırakılıyor...",
     "pokemon_released": "Pokémon bırakıldı.",
-    "pokemon_release_failed": "Pokémon bırakılamadı."
+    "pokemon_release_failed": "Pokémon bırakılamadı.",
+    "error": "Hata"
 }

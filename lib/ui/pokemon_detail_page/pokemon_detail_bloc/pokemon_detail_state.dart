@@ -24,3 +24,8 @@ class PokemonCatchStatusState extends PokemonDetailState {
   final bool status;
   PokemonCatchStatusState(this.status);
 }
+
+class PokemonDetailErrorState extends PokemonDetailState {
+  final dynamic error;
+  PokemonDetailErrorState(this.error);
+}

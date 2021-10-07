@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_pokemon/client/models/base_response_model/named_api_response.dart';
 import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_bloc/pokemon_list_bloc.dart';
 import 'package:project_pokemon/ui/pokemon_list_page/pokemon_list_screen.dart';
+import 'package:project_pokemon/utilities/dialog_manager/dialog_manager.dart';
 
 class PokemonListPage extends StatefulWidget {
   const PokemonListPage({Key? key}) : super(key: key);
@@ -48,6 +49,15 @@ class _PokemonListPageState extends State<PokemonListPage> {
               noMorePage = state.noMorePage;
               loading = false;
             });
+          } else if (state is PokemonListErroState) {
+            setState(() {
+              loading = false;
+            });
+            showDialog(
+              context: context,
+              builder: (context) => DialogManager()
+                  .simpleErrorDialog(context: context, error: state.error),
+            );
           }
         },
         child: PokemonListScreen(

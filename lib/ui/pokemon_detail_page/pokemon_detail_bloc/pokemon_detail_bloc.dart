@@ -17,22 +17,26 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
   PokemonDetailBloc() : super(PokemonDetailInitial()) {
     on<PokemonDetailEvent>((event, emit) async {
       if (event is GetPokemonDetailWithName) {
-        emit(SearchingPokemonDetailState());
-        late PokemonDetail detail;
-        late PokemonSpecies species;
-        bool isFavorited = Storage.i.favorites.contains(event.pokemonName);
-        List<Future> _futures = [
-          getPokemonDetail(event.pokemonName).then((value) {
-            detail = value;
-          }),
-          getPokemonSpecies(event.pokemonName).then((value) {
-            species = value;
-          })
-        ];
-        await Future.wait(_futures);
-        detail.pokemonSpecies = species;
-        detail.pokemonEvolution = await getPokemonEvolution(detail.id!);
-        emit(PokemonDetailFoundState(detail, isFavorited));
+        try {
+          emit(SearchingPokemonDetailState());
+          late PokemonDetail detail;
+          late PokemonSpecies species;
+          bool isFavorited = Storage.i.favorites.contains(event.pokemonName);
+          List<Future> _futures = [
+            getPokemonDetail(event.pokemonName).then((value) {
+              detail = value;
+            }),
+            getPokemonSpecies(event.pokemonName).then((value) {
+              species = value;
+            })
+          ];
+          await Future.wait(_futures);
+          detail.pokemonSpecies = species;
+          detail.pokemonEvolution = await getPokemonEvolution(detail.id!);
+          emit(PokemonDetailFoundState(detail, isFavorited));
+        } catch (error) {
+          emit(PokemonDetailErrorState(error));
+        }
       } else if (event is ChangeFavoriteStatusEvent) {
         bool success = event.currentStatus
             ? await Storage.i.removeFromFavorite(event.pokemonName)

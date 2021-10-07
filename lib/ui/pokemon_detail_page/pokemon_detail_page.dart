@@ -101,6 +101,15 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                     ]);
               },
             );
+          } else if (state is PokemonDetailErrorState) {
+            setState(() {
+              loading = false;
+            });
+            showDialog(
+              context: context,
+              builder: (context) => DialogManager()
+                  .simpleErrorDialog(context: context, error: state.error),
+            );
           }
         },
         child: PokemonDetailScreen(
