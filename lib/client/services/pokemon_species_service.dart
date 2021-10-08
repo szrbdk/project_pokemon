@@ -8,6 +8,7 @@ class PokemonSpeciesService extends ServiceCore {
 
   String get path => endpoint.string;
 
+  /// Get pokemon species
   Future<PokemonSpecies> pokemonSpecies(
       {required String pokemonName, Map<String, dynamic>? parameters}) {
     return Api().getRequest(

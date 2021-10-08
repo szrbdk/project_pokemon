@@ -6,6 +6,7 @@ import 'package:project_pokemon/utilities/extensions/extensions.dart'
 import 'package:project_pokemon/utilities/storage/storage.dart';
 
 class FavoritesScreen extends StatefulWidget {
+  /// List of favorited pokemons
   const FavoritesScreen({Key? key}) : super(key: key);
 
   @override

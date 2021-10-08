@@ -7,6 +7,7 @@ import 'package:project_pokemon/ui/pokedex/pokedex_screen.dart';
 import 'package:project_pokemon/utilities/dialog_manager/dialog_manager.dart';
 
 class PokedexPage extends StatefulWidget {
+  /// Lists of pokemon in your pokedex
   const PokedexPage({Key? key}) : super(key: key);
 
   @override

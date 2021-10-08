@@ -9,6 +9,7 @@ import 'package:project_pokemon/utilities/dialog_manager/dialog_manager.dart';
 import 'package:project_pokemon/utilities/helper.dart';
 
 class PokemonDetailPage extends StatefulWidget {
+  /// Shows single pokemon details
   const PokemonDetailPage(
       {Key? key, required this.pokemonName, this.onFavoriteChanged})
       : super(key: key);

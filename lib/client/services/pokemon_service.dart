@@ -9,6 +9,7 @@ class PokemonService extends ServiceCore {
 
   String get path => endpoint.string;
 
+  /// Get all pokemons with pages
   Future<BaseApiResponse> getPokemons({Map<String, dynamic>? parameters}) {
     return Api().getRequest(
       path: path,
@@ -17,6 +18,7 @@ class PokemonService extends ServiceCore {
     );
   }
 
+  /// Get sinle pokemon details.
   Future<PokemonDetail> pokemonDetail(
       {required String pokemonName, Map<String, dynamic>? parameters}) {
     return Api().getRequest(

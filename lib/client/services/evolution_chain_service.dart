@@ -8,6 +8,7 @@ class EvolutionChainService extends ServiceCore {
 
   String get _path => endpoint.string;
 
+  /// Get evolutions of given pokemon id
   Future<PokemonEvolution> evolutionChain(
       {required int id, Map<String, dynamic>? parameters}) {
     return Api().getRequest(

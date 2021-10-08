@@ -10,6 +10,7 @@ import 'package:project_pokemon/utilities/extensions/extensions.dart'
     show StringCasingExtension;
 
 class PokedexScreen extends StatelessWidget {
+  /// Lists of pokemon in your pokedex
   const PokedexScreen({
     Key? key,
     required this.pokedexItemList,
