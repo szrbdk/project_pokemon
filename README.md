@@ -12,7 +12,7 @@ A simple Pokédex application using Poke API and Flutter.
 - [x] Add/remove favorite caught pokémons
 - [x] Dark theme
 - [x] Language support
-- [ ] Test Case
+- [x] Test Case
 
 #### API
 
