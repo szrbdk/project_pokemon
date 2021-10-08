@@ -16,7 +16,7 @@ class PokemonDetailChipWidget<T> extends StatelessWidget {
   final String Function(T item) nameFn;
   final Color chipColor;
   final Color textColor;
-  final VoidCallback? onTap;
+  final void Function(T item)? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,11 @@ class PokemonDetailChipWidget<T> extends StatelessWidget {
           children: [
             for (var item in items) ...[
               GestureDetector(
-                onTap: onTap,
+                onTap: onTap == null
+                    ? null
+                    : () {
+                        onTap!(item);
+                      },
                 child: Chip(
                   label: Text(nameFn(item).replaceAll('-', ' ').toTitleCase()),
                   backgroundColor: chipColor,

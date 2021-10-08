@@ -8,6 +8,7 @@ import 'package:project_pokemon/client/models/pokemon/pokemon_evolution.dart';
 import 'package:project_pokemon/client/models/pokemon/pokemon_type.dart';
 import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/pokedex/model/pokedex_item.dart';
+import 'package:project_pokemon/ui/pokemon_detail_page/pokemon_detail_page.dart';
 import 'package:project_pokemon/utilities/extensions/extensions.dart'
     show BuildContextExtension, StringCasingExtension;
 import 'package:project_pokemon/widgets/pokemon_artwork_widget.dart';
@@ -105,7 +106,7 @@ class PokemonDetailScreen extends StatelessWidget {
                     ],
                     Expanded(
                       child: Container(
-                        decoration:  BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30)),
@@ -246,6 +247,13 @@ class DetailsSection extends StatelessWidget {
                     items: detail.pokemonEvolution!.chain!.evolvesTo!,
                     nameFn: (item) => item.species!.name!,
                     chipColor: Colors.pink,
+                    onTap: (item) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PokemonDetailPage(
+                                  pokemonName: item.species!.name!)));
+                    },
                   ),
                 ]
               ],
