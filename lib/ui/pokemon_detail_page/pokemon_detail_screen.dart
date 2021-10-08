@@ -109,7 +109,7 @@ class PokemonDetailScreen extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30)),
-                          color: Theme.of(context).backgroundColor,
+                          color: Theme.of(context).scaffoldBackgroundColor,
                         ),
                         child: DetailsSection(detail: detail!),
                       ),
