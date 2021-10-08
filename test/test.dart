@@ -1,19 +1,28 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:project_pokemon/client/models/pokemon/pokemon_detail.dart';
 import 'package:project_pokemon/utilities/storage/storage.dart';
 
 void main() {
-  group('Storage test', () {
-    test('Storage Favorite Test', () async {
+  group('Storage Test', () {
+    setUp(() async {});
+
+    test('Add pokemon to favorites', () async {
       await Storage.i.initializeStorage();
       await Storage.i.addToFavorite('bulbasaur');
-
       expect(Storage.i.favorites, contains('bulbasaur'));
     });
 
-    test('Remove from favoreite', () async {
+    test('Remove pokemon from favorites', () async {
       await Storage.i.initializeStorage();
       await Storage.i.removeFromFavorite('bulbasaur');
       expect(Storage.i.favorites, isNot(contains('bulbasaur')));
+    });
+
+    test('Add pokemon to dex', () async {
+      await Storage.i.initializeStorage();
+      expect(Storage.i.dex.length, 0);
+      await Storage.i.addToDex(PokemonDetail(name: 'bulbasaur', id: 1));
+      expect(Storage.i.dex.length, 1);
     });
   });
 

@@ -21,9 +21,10 @@ class PokemonPhysicalAttributesWidget extends StatelessWidget {
         Text(
           title,
           style: context.theme.textTheme.headline6?.apply(
-              fontSizeFactor: 0.7,
-              fontWeightDelta: 2,
-              color: Colors.black.withOpacity(0.6)),
+            fontSizeFactor: 0.7,
+            fontWeightDelta: 2,
+            // color: Colors.black.withOpacity(0.6),
+          ),
         ),
         Text(
           '$value',

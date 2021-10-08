@@ -105,11 +105,11 @@ class PokemonDetailScreen extends StatelessWidget {
                     ],
                     Expanded(
                       child: Container(
-                        decoration: const BoxDecoration(
+                        decoration:  BoxDecoration(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30)),
-                          color: Colors.white,
+                          color: Theme.of(context).backgroundColor,
                         ),
                         child: DetailsSection(detail: detail!),
                       ),
@@ -275,8 +275,8 @@ class PokemonTitleWidget extends StatelessWidget {
           name.toTitleCase(),
           style: Theme.of(context)
               .textTheme
-              .headline4
-              ?.apply(fontWeightDelta: 2, color: Colors.black),
+              .bodyText1
+              ?.apply(fontWeightDelta: 2, fontSizeFactor: 2.5),
         ),
       ),
     );

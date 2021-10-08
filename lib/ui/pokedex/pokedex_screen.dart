@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:project_pokemon/generated/l10n.dart';
 import 'package:project_pokemon/ui/pokedex/model/pokedex_item.dart';
 import 'package:project_pokemon/ui/pokedex/pokedex_bloc/pokedex_bloc.dart';
@@ -48,7 +49,20 @@ class PokedexScreen extends StatelessWidget {
                                     pokedexItem.detail.sprites!.baseArtWork!),
                           )
                         : null,
-                    title: Text(pokedexItem.detail.name!.toTitleCase()),
+                    title: Text(
+                      pokedexItem.detail.name!.toTitleCase(),
+                      style: Theme.of(context).textTheme.bodyText2?.apply(
+                          color: pokedexItem.paletteColor?.bodyTextColor
+                              .withAlpha(255)),
+                    ),
+                    subtitle: Text(
+                        DateFormat.yMMMMd(Intl.getCurrentLocale())
+                            .add_Hm()
+                            .format(DateTime.fromMillisecondsSinceEpoch(
+                                pokedexItem.timeStamp)),
+                        style: Theme.of(context).textTheme.bodyText2?.apply(
+                            color: pokedexItem.paletteColor?.bodyTextColor
+                                .withAlpha(255))),
                     onTap: () {
                       Navigator.push(
                         context,
