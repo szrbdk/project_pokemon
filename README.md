@@ -2,16 +2,15 @@
 
 A simple Pokédex application using Poke API and Flutter.
 
-
 #### Features
 
-- [x] List pokémons using the API 
+- [x] List pokémons using the API
 - [x] Show pokémon details
-- [ ] Catch pokémons and keep the déx record
-- [ ] Release pokémons 
-- [ ] List caught pokémons 
-- [ ] Add/remove favorite caught pokémons 
-- [ ] Dark theme
+- [x] Catch pokémons and keep the déx record
+- [x] Release pokémons
+- [x] List caught pokémons
+- [x] Add/remove favorite caught pokémons
+- [x] Dark theme
 - [x] Language support
 - [ ] Test Case
 
